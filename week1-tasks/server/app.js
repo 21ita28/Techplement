@@ -1,9 +1,13 @@
 const express = require('express');
 const fetch = require('node-fetch');
+const cors - require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const apiUrl = 'https://zenquotes.io/api/quotes';
+
+app.use(express.static('public'));
+app.use(cors());
 
 app.get('/quote/random', async (req, res) => {
   try {
